@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: resume_aiq_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/sessions:/app/sessions
+    environment:
+      - APP_NAME=ResumeIQ
+      - APP_VERSION=0.1.0
+      - GEMINI_MODEL=gemini-2.0-flash-exp
+    restart: unless-stopped

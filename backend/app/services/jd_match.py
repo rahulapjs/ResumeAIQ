@@ -1,3 +1,5 @@
+import json
+import re
 from typing import Dict, List
 from app.services.embeddings import embed_texts
 from app.services.rag import load_faiss_index, load_chunks
@@ -62,6 +64,17 @@ Respond in the following JSON format:
 """
 
     client = GeminiClient(api_key)
-    response = client.generate(system_prompt, user_prompt)
+    response_text = client.generate(system_prompt, user_prompt)
 
-    return response
+    try:
+        clean_text = re.sub(r"```json\s*|\s*```", "", response_text).strip()
+        data = json.loads(clean_text)
+        return data
+    except Exception:
+        return {
+            "match_score": 0,
+            "strengths": [],
+            "missing_skills": [],
+            "recommendations": ["Failed to parse AI response"],
+            "raw_response": response_text
+        }

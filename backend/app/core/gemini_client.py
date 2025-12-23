@@ -1,4 +1,4 @@
-import google.generativeai as genai
+from google import genai
 from app.core.config import settings
 
 
@@ -7,8 +7,8 @@ class GeminiClient:
         if not api_key:
             raise ValueError("Gemini API key is required")
 
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(settings.GEMINI_MODEL)
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = settings.GEMINI_MODEL
 
     def generate(self, system_prompt: str, user_prompt: str) -> str:
         prompt = f"""
@@ -17,7 +17,10 @@ class GeminiClient:
 User Input:
 {user_prompt}
 """
-        response = self.model.generate_content(prompt)
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=prompt
+        )
 
         if not response or not response.text:
             raise RuntimeError("Empty response from Gemini")
