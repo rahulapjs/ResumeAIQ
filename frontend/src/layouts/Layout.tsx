@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, setApiKey } from '../store/resumeSlice';
+import { setApiKey } from '../store/resumeSlice';
+import type { RootState } from '../store/store';
 import Sidebar from '../components/Sidebar';
 import { GlassCard } from '../components/GlassCard';
 import { Key } from 'lucide-react';

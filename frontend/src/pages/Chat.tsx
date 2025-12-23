@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, askQuestion } from '../store/resumeSlice';
-import { AppDispatch } from '../store/store';
+import { askQuestion } from '../store/resumeSlice';
+import type { RootState } from '../store/store';
+import type { AppDispatch } from '../store/store';
 import { GlassCard } from '../components/GlassCard';
 import { Send, User, Bot, Loader2 } from 'lucide-react';
 

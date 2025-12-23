@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, getAtsScore } from '../store/resumeSlice';
-import { AppDispatch } from '../store/store';
+import { getAtsScore } from '../store/resumeSlice';
+import type { RootState } from '../store/store';
+import type { AppDispatch } from '../store/store';
 import { GlassCard } from '../components/GlassCard';
 import { BarChart, Activity, Layers, Type } from 'lucide-react';
 import { motion } from 'framer-motion';

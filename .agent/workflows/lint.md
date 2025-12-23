@@ -23,7 +23,7 @@ This workflow checks for code style and potential errors in both the frontend (E
 ## Frontend Linting
 
 1. Ensure you are in the `frontend` directory.
-2. Install dependencies (if strictly necessary, usually `npm install` covers it):
+2. Install dependencies:
    ```bash
    npm install
    ```

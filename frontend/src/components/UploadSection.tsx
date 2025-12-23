@@ -2,7 +2,8 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { UploadCloud, AlertCircle } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { uploadResume, RootState } from '../store/resumeSlice';
+import { uploadResume } from '../store/resumeSlice';
+import type { RootState } from '../store/store';
 import type { AppDispatch } from '../store/store';
 import { GlassCard } from '../components/GlassCard';
 

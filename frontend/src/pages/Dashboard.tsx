@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, getAtsScore, getSummary } from '../store/resumeSlice';
+import { getAtsScore, getSummary } from '../store/resumeSlice';
+import type { RootState } from '../store/store';
 import type { AppDispatch } from '../store/store';
 import { GlassCard } from '../components/GlassCard';
 import UploadSection from '../components/UploadSection'; // Added import
